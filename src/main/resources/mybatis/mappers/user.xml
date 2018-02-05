@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- sqlSession 이 찾아올 수 있는 첫번째 주소 이름 -->
+<mapper namespace="user">
+
+	<select id="selectUserByEmailandPw" parameterType = "map" resultType="UserVo">
+	<![CDATA[
+		select no,name,email
+		from users
+		where email= #{email}
+		and password= #{password}
+		]]>
+	</select>
+	
+	<update id="updateUserNameandPw" parameterType = "UserVo" >
+	<![CDATA[
+		update users set
+		name= #{name},
+		password= #{password},
+		gender= #{gender}
+		where email= #{email}
+	]]>
+	</update>
+	
+	<insert id="insertUser" parameterType="map" >
+	<![CDATA[
+		insert into users  
+		values 
+		(seq_users_no.nextval, #{name}, #{email}, #{password}, #{gender})
+	]]>
+	</insert>
+</mapper>
