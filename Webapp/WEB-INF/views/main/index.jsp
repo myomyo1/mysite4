@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="${pageContext.request.contextPath}/assets/css/main.css" rel="stylesheet"
 	type="text/css">
-<title>Mysite</title>
+<title>${pageContext.request.contextPath}</title>
 </head>
 <body>
 	<div id="container">
@@ -28,7 +28,7 @@
 						왈왈 엄마가 여기는 웹 프로그램밍 실습과제 예제 사이트래요!!왈!! <br>
 						JAVA 수업 + 데이터베이스 수업 + 웹프로그래밍 수업 사이ㅌ으으 멍멍!!!!!!<br>
 															
-						<br> <a href="${pageContext.request.contextPath}/guestbook/list">방명록</a>에 글 남기기 <br>
+						<br> <a href="${pageContext.request.contextPath}/gb/list">방명록</a>에 글 남기기 <br>
 					</p>
 				</div>
 			</div>
