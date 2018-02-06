@@ -15,8 +15,14 @@ public class BoardService {
 	@Autowired
 	BoardDao bdao;
 
-	public List<BoardVo> showListAll() {
-		List<BoardVo> blist = bdao.showListAll();
+	public List<BoardVo> showListAll(String kwd) {
+		List<BoardVo> blist;
+		
+		if(kwd.equals("")) {
+			blist = bdao.showListAll();
+		}else{
+			blist = bdao.searchingKwd("%"+kwd+"%");	
+		}
 		return blist;
 	}
 
@@ -31,6 +37,7 @@ public class BoardService {
 	}
 
 	public BoardVo viewboard(int no) {
+		bdao.counthit(no);
 		return bdao.viewboard(no);
 		
 	}
@@ -44,7 +51,6 @@ public class BoardService {
 		return bdao.updateboard(vo);
 		
 	}
-
 
 
 }

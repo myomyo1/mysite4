@@ -20,7 +20,7 @@
 
 		<div id="content">
 			<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath}/board/list" method="post">
+				<form id="search_form" action="${pageContext.request.contextPath}/board/searchKwd" method="post">
 					<input type="text" id="kwd" name="kwd" value=""> 
 					<input	type="submit" value="찾기">
 				</form>

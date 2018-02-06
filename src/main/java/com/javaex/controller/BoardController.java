@@ -24,11 +24,13 @@ public class BoardController {
 	BoardService bservice;
 	
 	@RequestMapping("/list")
-	public String list(Model model) {
-		List<BoardVo> blist = bservice.showListAll();
+	public String list(Model model, @RequestParam("kwd") String kwd) {
+		System.out.println("kwd값" + kwd);
+		List<BoardVo> blist = bservice.showListAll(kwd);
 		model.addAttribute("blist", blist);
 		return "/board/list";
 	}
+	
 	@RequestMapping("/writeform")
 	public String writeform() {
 		return "/board/write";
@@ -56,7 +58,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/modifyform")
-	public String modifyform(@RequestParam("no") int no, Model model) {
+	public String modifyform(Model model, @RequestParam("no") int no) {
 		BoardVo bvo = bservice.modifyboard(no);
 		model.addAttribute("vo", bvo);
 		return "board/modify";
@@ -66,9 +68,8 @@ public class BoardController {
 	public String modify(@RequestParam("no")int no, @ModelAttribute BoardVo vo) {
 		vo.setNo(no);
 		bservice.updateboard(vo);
-		System.out.println(vo.getNo());
-		return "redirect:/board/list";
+		System.out.println(vo);
+		return "redirect:/board/list?kwd=";
 	}
-
-
+	
 }

@@ -18,7 +18,10 @@ public class BoardDao {
 	public List<BoardVo> showListAll() {
 		return session.selectList("board.showListAll");
 	}
-
+	
+	public List<BoardVo> searchingKwd(String kwd) {
+		return session.selectList("board.searchingKwd", kwd);
+	}
 	public int insertboard(Map<String, String> map) {
 		return session.insert("board.insertboard", map);
 	}
@@ -30,6 +33,10 @@ public class BoardDao {
 	public BoardVo viewboard(int no) {
 		return session.selectOne("board.viewboard", no);
 	}
+	
+	public int counthit(int no) {
+		return session.update("board.counthit", no);
+	}
 
 	public BoardVo moifyboard(int no) {
 		return session.selectOne("board.viewboard", no);
@@ -38,5 +45,7 @@ public class BoardDao {
 	public int updateboard(BoardVo vo) {
 		return session.update("board.updateboard", vo);
 	}
+
+	
 
 }

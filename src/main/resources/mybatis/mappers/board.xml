@@ -43,5 +43,22 @@
 		where no= #{no}
 	]]>
 	</update>	
-
+	
+	<update id="counthit" parameterType = "int" >
+	<![CDATA[
+		update board set 
+		hit = hit+1 
+		where no = #{no}
+	]]>
+	</update>
+	
+	<select id="searchingKwd" parameterType = "String" resultType = "com.javaex.vo.BoardVo">
+	<![CDATA[
+		select b.no, u.name, b.title, b.content, b.hit, b.reg_date regDate
+		from board b, users u
+		where b.user_no=u.no and title like #{kwd}
+		order by regDate desc
+		]]>
+	</select>
+	
 </mapper>
