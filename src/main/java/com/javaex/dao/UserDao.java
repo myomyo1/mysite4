@@ -26,7 +26,15 @@ public class UserDao {
 	public int join(Map<String, String> map) {
 		return sqlsession.insert("user.insertUser", map);
 	}
+	
+	//이메일 중복체크하기위함
+	public UserVo getUser(String email) {
+		UserVo uservo = sqlsession.selectOne("user.selectUserByEmail",email);
+		return uservo;
+		
+	}
 
+	
 	
 	
 

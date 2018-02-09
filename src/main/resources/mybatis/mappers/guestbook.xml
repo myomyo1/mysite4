@@ -33,4 +33,41 @@
 		where no = #{no} and password=#{password}
 	]]>
 	</delete>
+	
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	
+	<select id="selectListByPage" parameterType = "int" resultType="com.javaex.vo.GuestVo">
+	<![CDATA[
+		select t.r, no, name, password, content, reg_date regDate
+		from (select rownum  r , no, name, password, content, reg_date
+      		from (select no, name, password, content, reg_date
+		            from guestbook
+            		order by reg_date desc )o
+     		)t
+		where r >= (#{page}-1)*5 +1 and r<= #{page}*5
+	]]>
+	</select>
+	
+	<insert id="insertGuestbookajax" parameterType="com.javaex.vo.GuestVo" > <!-- 생성한번호 객체에 저장 -->
+	<selectKey keyProperty="no" resultType="int" order="BEFORE">
+		select seq_no.nextval from dual <!-- 번호생성 -->
+	</selectKey>	<!-- 객체정보뽑아서 insert --> 
+		<![CDATA[  
+			insert into guestbook  
+			values (#{no}, #{name}, #{password}, #{content}, sysdate)
+		]]>
+	</insert>
+	
+	<select id= "sysdate" parameterType = "int" resultType = "String">
+	<![CDATA[
+		select reg_date regDate
+		from guestbook
+		where no =#{no}
+	]]>
+	</select>
+	
+	<!-- modal 팝업에 뜨는 삭제 쿼리는 기존쿼리사용 -->
+	
+
 </mapper>
+

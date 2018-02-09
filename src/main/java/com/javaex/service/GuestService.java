@@ -29,5 +29,26 @@ public class GuestService {
 		return gbDao.deleteGuestbook(map);
 		
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	
+	public List<GuestVo> getGuestListPage(int page){
+		return gbDao.selectGuestListPage(page);
+	}
+
+	public GuestVo writeajax(GuestVo gvo) {
+		gbDao.writeajax(gvo);
+		String sysdate = gbDao.sysdate(gvo.getNo());
+		gvo.setRegDate(sysdate);
+		return gvo;
+	}
+
+	public int deleteajax(Map<String, String> map) {
+		return gbDao.deleteajax(map);
+		
+	}
+
+
+
 
 }

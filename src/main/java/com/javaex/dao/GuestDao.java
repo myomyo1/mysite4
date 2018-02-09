@@ -27,6 +27,30 @@ public class GuestDao {
 		return sqlSession.delete("gb.deleteGuestbook", map);
 	}
 	
+	///////////////////////////////////////////////////////
+	
+	public List<GuestVo> selectGuestListPage(int page){
+		return sqlSession.selectList("gb.selectListByPage",page);
+	}
+
+	public GuestVo writeajax(GuestVo gvo) {
+		System.out.println(gvo.getNo()); //0
+		sqlSession.insert("gb.insertGuestbookajax",gvo);
+		int resultNo = gvo.getNo(); //시퀀스의 다음값이 담겨있다
+		System.out.println(resultNo);
+		return gvo;
+	}
+
+	public String sysdate(int no) {
+		return sqlSession.selectOne("gb.sysdate", no);
+	}
+
+	public int deleteajax(Map<String, String> map) {
+		return sqlSession.delete("gb.deleteGuestbook", map);
+	}
+
+	
+	
 
 
 }

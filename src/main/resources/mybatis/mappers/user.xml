@@ -30,4 +30,12 @@
 		(seq_users_no.nextval, #{name}, #{email}, #{password}, #{gender})
 	]]>
 	</insert>
+	
+	<select id="selectUserByEmail" parameterType="String" resultType="UserVo">
+	<![CDATA[
+		select email
+		from users
+		where email= #{email}
+		]]>  
+	</select>
 </mapper>

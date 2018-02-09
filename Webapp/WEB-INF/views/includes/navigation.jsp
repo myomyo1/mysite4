@@ -4,6 +4,7 @@
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/main">myomyo</a></li>
 				<li><a href="${pageContext.request.contextPath}/gb/list">방명록</a></li>
+				<li><a href="${pageContext.request.contextPath}/gb/listajax">방명록(ajax)</a></li>
 				<li><a href="${pageContext.request.contextPath}/board/list?kwd=">게시판</a></li>			
 
 			</ul>

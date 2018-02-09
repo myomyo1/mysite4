@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.GuestService;
@@ -42,4 +43,10 @@ public class GuestController {
 		gbService.deleteGuestbook(map);
 		return "redirect:/gb/list";
 	}
+	
+	@RequestMapping(value = "/listajax", method=RequestMethod.GET)
+	public String listajax() {
+		return "guestbook/listajax"; 
+	}
+	
 }
