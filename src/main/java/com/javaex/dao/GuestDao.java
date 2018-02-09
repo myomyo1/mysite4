@@ -29,8 +29,8 @@ public class GuestDao {
 	
 	///////////////////////////////////////////////////////
 	
-	public List<GuestVo> selectGuestListPage(int page){
-		return sqlSession.selectList("gb.selectListByPage",page);
+	public List<GuestVo> getNextGlistPage(int page){
+		return sqlSession.selectList("gb.getNextGlistPage",page);
 	}
 
 	public GuestVo writeajax(GuestVo gvo) {

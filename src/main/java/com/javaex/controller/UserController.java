@@ -27,12 +27,24 @@ public class UserController {
 		return "user/loginform";
 	}
 	
+//	@RequestMapping("/login")
+//	public String login(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
+//		Map<String, String> map =new HashMap<String, String>();
+//		map.put("email", email);
+//		map.put("password",	password);
+//		
+//		UserVo authUser = userService.login(map);
+//		System.out.println(authUser);
+//		if(authUser!=null) {
+//			session.setAttribute("authUser", authUser);
+//			return "main/index";
+//		}else {
+//			return "redirect:/user/loginform?result=fail";	
+//		}
+//	}
+	
 	@RequestMapping("/login")
-	public String login(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
-		Map<String, String> map =new HashMap<String, String>();
-		map.put("email", email);
-		map.put("password",	password);
-		
+	public String login(@RequestParam Map<String, String> map, HttpSession session) { //email password 가 map에 담겨옴
 		UserVo authUser = userService.login(map);
 		System.out.println(authUser);
 		if(authUser!=null) {

@@ -21,8 +21,8 @@ public class ApiGuestController {
 	
 	@ResponseBody
 	@RequestMapping(value="/gb/api/list", method = RequestMethod.POST)
-	public List<GuestVo> apiList(@RequestParam("page") int page) {
-		List<GuestVo> glist = gService.getGuestListPage(page);
+	public List<GuestVo> apiNextList(@RequestParam("page") int page) {
+		List<GuestVo> glist = gService.getNextGlistPage(page);
 		return glist;
 	}
 	

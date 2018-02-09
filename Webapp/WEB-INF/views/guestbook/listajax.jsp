@@ -38,6 +38,7 @@
 	</div><!-- /.modal -->
 
 
+	<!-- 글 작성 테이블 -->
 	<div id="container">
 		<!-- header -->
 		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
@@ -185,7 +186,7 @@ $("#write").on("click", function(){
 
 ///////////////////////////////////////////////////////////
 
-$("ul").on("click",".delbtn", function(){
+$("ul").on("click",".delbtn", function(){ //ul에 이벤트 걸어놓고 .delbtn에게 일 시킨 것.
 	var $this = $(this);
 	var no = $this.data("no");
 	console.log(no);

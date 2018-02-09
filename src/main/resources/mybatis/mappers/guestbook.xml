@@ -36,7 +36,7 @@
 	
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	
-	<select id="selectListByPage" parameterType = "int" resultType="com.javaex.vo.GuestVo">
+	<select id="getNextGlistPage" parameterType = "int" resultType="com.javaex.vo.GuestVo">
 	<![CDATA[
 		select t.r, no, name, password, content, reg_date regDate
 		from (select rownum  r , no, name, password, content, reg_date

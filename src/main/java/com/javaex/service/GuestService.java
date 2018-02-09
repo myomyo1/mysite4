@@ -32,8 +32,8 @@ public class GuestService {
 	
 	//////////////////////////////////////////////////////////////////////////////////
 	
-	public List<GuestVo> getGuestListPage(int page){
-		return gbDao.selectGuestListPage(page);
+	public List<GuestVo> getNextGlistPage(int page){
+		return gbDao.getNextGlistPage(page);
 	}
 
 	public GuestVo writeajax(GuestVo gvo) {

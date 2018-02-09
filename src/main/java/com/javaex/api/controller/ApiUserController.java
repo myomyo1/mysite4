@@ -13,7 +13,7 @@ import com.javaex.vo.UserVo;
 
 @Controller
 public class ApiUserController {
-	
+	//ajax : 페이지 이동 하지 않기 위해서 사용하는것. 따라서 이메일 중복체크시에만 사용하고 나머지 그대로 이용.
 	@Autowired
 	UserService userService;
 	
